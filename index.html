@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap core 4.0 CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Link to javascript, has been tested so I know the pathing is correct -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+
+    <title>Multiplayer RPS!</title>
+
+</head>
+
+<body>
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="display-4 text-center">Rock, Paper, Scissors!</h1>
+    </div>
+    <div class="container">
+        <!-- Row 1: Type in your name and push start form -->
+        <!-- The idea here is that when you type in your name and push start your player is either assigned
+            to player 1 slot or player 2 slot. If both slots are filled, the game begins, highlighting player 1's
+            window and asking them to make a decision between rock, paper, and scissors -->
+        <!-- This row is then updated to say: "Hi (insert playername)! You are Player 1/2" -->
+        <!-- A second row is added, after this update, that displays the current game state -->
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-inline justify-content-center">
+                    <!-- Name input form -->
+                    <label class="sr-only" for="inlineFormInput">Name</label>
+                    <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+
+                </form>
+            </div>
+        </div>
+        <!-- Row 2: Three Cards, first card is player 1, second card is results, third card is player 2 -->
+        <!-- After player 1 makes a choice (on click), player 2's window lights up for the same selection
+            process. The opposing player's window is always invisible. -->
+        <!-- After player 2 picks, the middle window lights up and displays who won, or if it was a tie.
+            Scores then update, and the game immediately restarts. -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
+                            content is a little bit longer.</p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-md-offset-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
+                            content is a little bit longer.</p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-md-offset-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
+                            content is a little bit longer.</p>
+                        <p class="card-text">
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row 3: Chatroom! -->
+        <!-- Fairly straightforward, the chatroom is a comment form input that submits the message after
+            clicking a button. This message is then dynamically added to the chat panel through firebase -->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+.form-inline {
+    text-align: center;
+}
+.card {
+    border: 1px solid grey;
+    margin-top: 20px;
+}
+#inlineFormInput {
+    width: 40%;
+}
