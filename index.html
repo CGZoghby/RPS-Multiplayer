@@ -95,6 +95,21 @@
         <!-- Row 3: Chatroom! -->
         <!-- Fairly straightforward, the chatroom is a comment form input that submits the message after
             clicking a button. This message is then dynamically added to the chat panel through firebase -->
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1"></label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                </div>
+                <form class="form-inline justify-content-center">
+                    <!-- Name input form -->
+                    <label class="sr-only" for="inlineFormInput">Name</label>
+                    <input type="text" class="form-control mb-2" id="inlineChatInput" placeholder="Chat with your opponent!">
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 
