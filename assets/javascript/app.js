@@ -16,17 +16,57 @@ $(document).ready(function () {
     // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
 
     // Creating variables to hold the number of wins, losses, and ties. They start at 0.
-    var wins = 0;
-    var losses = 0;
+    var wins = 0,
+        losses = 0,
+        player1Occupied = false,
+        player2Occupied = false;
+
+    //So the goal here is to assign a guid to each browser window. This allows for uniquely displaying information IFF (if and only if) their guid matches the stored guid.
+    //Alternatively/additionally, I could read off the "Welcome <player> tab and compare against stored namebase, and display based on that?"
+    var guid = function () {
+        var nav = window.navigator;
+        var screen = window.screen;
+        var guid = nav.mimeTypes.length;
+        guid += nav.userAgent.replace(/\D+/g, '');
+        guid += nav.plugins.length;
+        guid += screen.height || '';
+        guid += screen.width || '';
+        guid += screen.pixelDepth || '';
+        return guid;
+    };
 
     //When first name is entered need to register that name to first window, and then display Name on top of window, 
     //with Wins: 0, Losses: 0, on bottom of window. This needs to update on both player screens.
+    $("#nameSubmit").on("click", function () {
+        event.preventDefault();
+        if (player1Occupied === false && player2Occupied === false) {
+            $("#winLossp1").css("visibility", "visible");
+            $("#p1").text($("#inlineFormInput").val().trim());
+            player1Occupied = true;
+            firebase.ref().set({
+                player1: $("#inlineFormInput").val().trim(),
+                player1Wins: 0,
+                player1Losses: 0,
+            });
+        } else if (player2Occupied === false) {
+            $("#winLossp2").css("visibility", "visible");
+            $("#p2").text($("#inlineFormInput").val().trim());
+            player2Occupied = true;
+            firebase.ref().set({
+                player2: $("#inlineFormInput").val().trim(),
+                player2Wins: 0,
+                player2Losses: 0,
+            });
+        } else {
+            //do nothing
+        };
+    });
 
     //When SECOND name is entered, repeat same this as first, but additionally:
     //In active player's window (Player 1), display the choice between Rock, Paper, and Scissors (make clickable)
     //In opposing player's screen, they should NOT SEE the player 1's options for choices. they should just see player 
     //name and wins/losses. 
-    
+
     //Active player (square highlighted in yellow), has the following appended to their name entry row:
     //It's Your Turn!
     //Opposing player displays: "Waiting for <player 1> to choose."

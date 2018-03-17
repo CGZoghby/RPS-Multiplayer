@@ -1,13 +1,26 @@
 .form-inline {
     text-align: center;
 }
+
 .card {
     border: 1px solid grey;
     margin-top: 20px;
 }
+
 #inlineFormInput {
     width: 40%;
 }
+
 #inlineChatInput {
     width: 90%
+}
+
+#gameDispP1,
+#gameDispP2 {
+    visibility: hidden;
+}
+
+#winLossp1,
+#winLossp2 {
+    visibility: hidden;
 }

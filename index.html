@@ -44,8 +44,7 @@
                     <label class="sr-only" for="inlineFormInput">Name</label>
                     <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
-
+                    <button type="submit" class="btn btn-primary mb-2" id="nameSubmit">Submit</button>
                 </form>
             </div>
         </div>
@@ -58,36 +57,39 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
+                        <h5 class="card-title" id="p1"></h5>
                         <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                            <ul id="gameDispP1">
+                                <li>Rock</li>
+                                <li>Paper</li>
+                                <li>Scissors</li>
+                            </ul>
                         </p>
+                        <p class="card-text" id="winLossp1">Wins: 0, Losses: 0</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-2 col-md-offset-2">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
-                        <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                        </p>
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                        <p class="card-text"></p>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-md-offset-2">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This
-                            content is a little bit longer.</p>
+                        <h5 class="card-title" id="p2"></h5>
                         <p class="card-text">
-                            <small class="text-muted">Last updated 3 mins ago</small>
+                            <ul id="gameDispP2">
+                                <li>Rock</li>
+                                <li>Paper</li>
+                                <li>Scissors</li>
+                            </ul>
                         </p>
+                        <p class="card-text" id="winLossp2">Wins: 0, Losses: 0</p>
                     </div>
                 </div>
             </div>
@@ -96,10 +98,6 @@
         <!-- Fairly straightforward, the chatroom is a comment form input that submits the message after
             clicking a button. This message is then dynamically added to the chat panel through firebase -->
         <div class="row">
-<<<<<<< HEAD
-            <div class="col-md-12">
-                
-=======
             <div class="col-md-offset-2 col-md-8">
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1"></label>
@@ -112,7 +110,6 @@
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary mb-2">Submit</button>
                 </form>
->>>>>>> 37b51bd99fe8b02e7dd37561720f1b17a2d803d1
             </div>
         </div>
     </div>
