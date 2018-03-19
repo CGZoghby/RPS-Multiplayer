@@ -10,6 +10,7 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
+    var database = firebase.database();
     //chunk firebase into a /chat section, /players section, with a /1, /2, and /turn subsection
     //players subsections /1 and /2 have info on choice, name, losses, and wins
     //turn literally is 1, if it's player 1's turn, or 2, if it is player 2's turn
@@ -34,6 +35,14 @@ $(document).ready(function () {
         guid += screen.pixelDepth || '';
         return guid;
     };
+
+    function writeMessage (str) {
+        return `${str} \n`
+    };
+
+    database.ref("/chat").on("value", function(snapshot){
+        writeMessage(snapshot);
+    });
 
     //When first name is entered need to register that name to first window, and then display Name on top of window, 
     //with Wins: 0, Losses: 0, on bottom of window. This needs to update on both player screens.
@@ -78,5 +87,12 @@ $(document).ready(function () {
     //viewpoint. The middle displays "<player> wins!" and then immediately rolls into the next round.
 
     //chat menu is completely unrelated to game. 
+    $("#chatSubmit").on("click", function() {
+        event.preventDefault();
+        var msgStr = $("#inlineChatInput").val().trim();
+        database.ref("/chat").set({
+            msgStr
+        });
+    });
 
 });
